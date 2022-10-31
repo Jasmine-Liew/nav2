@@ -8,8 +8,8 @@ class CallbackGroupDemo(Node):
     def __init__(self):
         super().__init__('client_node')
 
-        client_cb_group = ReentrantCallbackGroup()
-        timer_cb_group = ReentrantCallbackGroup()
+        client_cb_group = None
+        timer_cb_group = None
         self.client = self.create_client(Empty, 'test_service', callback_group=client_cb_group)
         self.call_timer = self.create_timer(1, self._timer_cb, callback_group=timer_cb_group)
 
